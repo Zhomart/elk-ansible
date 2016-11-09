@@ -51,3 +51,8 @@
 
 - name: Install Elasticsearch.
   apt: pkg=elasticsearch state=present
+
+# ======== Logstash ===========
+
+- name: Install Logstash.
+  apt: pkg=logstash state=present

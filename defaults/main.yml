@@ -7,6 +7,12 @@ elk_java_repo_key:              'EEA14886'
 elk_java_oracle_installer_key:  'oracle-java8-installer'
 elk_java_oracle_license_key:    'accepted-oracle-license-v1-1'
 
-elk_elasticsearch_cluster_name: elk
-elk_elasticsearch_network_host: localhost
-elk_elasticsearch_http_port:    9200
+elk_elasticsearch_cluster_name: 'elk'
+elk_elasticsearch_network_host: 'localhost'
+elk_elasticsearch_http_port:    '9200'
+
+elk_logstash_http_host:         'localhost'
+elk_logstash_http_port:         '9600'
+elk_logstash_elasticsearch:
+  - "localhost:9200"
+elk_logstash_local_syslog_input: false

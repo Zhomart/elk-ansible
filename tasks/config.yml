@@ -1,0 +1,38 @@
+---
+
+- name: Configure Elasticsearch
+  template:
+    src: elasticsearch.yml.j2
+    dest: /etc/elasticsearch/elasticsearch.yml
+    owner: root
+    group: elasticsearch
+    mode: 0750
+  notify: restart elasticsearch
+
+- name: Configure Logstash
+  template:
+    src: logstash.yml.j2
+    dest: /etc/logstash/logstash.yml
+    owner: root
+    group: root
+    mode: 0750
+  notify: restart logstash
+
+- name: Configure Logstash | local-syslog-input
+  template:
+    src: logstash/05-local-syslog-input.conf.j2
+    dest: /etc/logstash/conf.d/05-local-syslog-input.conf.j2
+    owner: root
+    group: root
+    mode: 0750
+  notify: restart logstash
+  when: elk_logstash_local_syslog_input
+
+- name: Configure Logstash | elasticsearch-output
+  template:
+    src: logstash/90-elasticsearch-output.conf.j2
+    dest: /etc/logstash/conf.d/90-elasticsearch-output.conf.j2
+    owner: root
+    group: root
+    mode: 0750
+  notify: restart logstash

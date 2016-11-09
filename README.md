@@ -1,4 +1,4 @@
-# ELK 5 Ansible Role
+# Ansible Role: elk
 
 An Ansible Role that installs Elasticsearch on Debian/Ubuntu.
 

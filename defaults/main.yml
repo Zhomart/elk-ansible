@@ -1,0 +1,12 @@
+---
+
+elk_java_ppa:                   'ppa:webupd8team/java'
+elk_java_repo:                  'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main'
+elk_java_repo_keyserver:        'keyserver.ubuntu.com'
+elk_java_repo_key:              'EEA14886'
+elk_java_oracle_installer_key:  'oracle-java8-installer'
+elk_java_oracle_license_key:    'accepted-oracle-license-v1-1'
+
+elk_elasticsearch_cluster_name: elk
+elk_elasticsearch_network_host: localhost
+elk_elasticsearch_http_port:    9200

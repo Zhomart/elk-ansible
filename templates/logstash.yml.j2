@@ -19,7 +19,7 @@
 #
 # Use a descriptive name for the node:
 
-node.name: {{ ansible_hostname }}
+node.name: "{{ ansible_hostname }}"
 
 # If omitted the node name will default to the machine's host name
 #
@@ -92,7 +92,7 @@ path.config: /etc/logstash/conf.d
 #
 # Bind address for the metrics REST endpoint
 
-http.host: {{ elk_logstash_http_host }}
+http.host: "{{ elk_logstash_http_host }}"
 
 # Bind port for the metrics REST endpoint, this option also accept a range
 # (9600-9700) and logstash will pick up the first available ports.

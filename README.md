@@ -15,6 +15,6 @@ Look at `defaults/main.yml` and `vars/main.yml` for variables.
 ## TODO
 
 - [x] Elasticsearch 5.0
-- [ ] Logstash 5.0
-- [ ] Kibana 5.0
+- [x] Logstash 5.0
+- [x] Kibana 5.0
 - [ ] Authentication if possible

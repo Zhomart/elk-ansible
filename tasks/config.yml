@@ -4,7 +4,7 @@
   template:
     src: elasticsearch.yml.j2
     dest: /etc/elasticsearch/elasticsearch.yml
-    owner: root
+    owner: elasticsearch
     group: elasticsearch
     mode: 0750
   notify: restart elasticsearch
@@ -13,8 +13,8 @@
   template:
     src: logstash.yml.j2
     dest: /etc/logstash/logstash.yml
-    owner: root
-    group: root
+    owner: logstash
+    group: logstash
     mode: 0750
   notify: restart logstash
 
@@ -22,17 +22,36 @@
   template:
     src: logstash/05-local-syslog-input.conf.j2
     dest: /etc/logstash/conf.d/05-local-syslog-input.conf.j2
-    owner: root
-    group: root
+    owner: logstash
+    group: logstash
     mode: 0750
   notify: restart logstash
   when: elk_logstash_local_syslog_input
+
+- name: Configure Logstash | beats-input
+  template:
+    src: logstash/10-beats-input.conf.j2
+    dest: /etc/logstash/conf.d/10-beats-input.conf.j2
+    owner: logstash
+    group: logstash
+    mode: 0750
+  notify: restart logstash
+  when: elk_logstash_beats_input
 
 - name: Configure Logstash | elasticsearch-output
   template:
     src: logstash/90-elasticsearch-output.conf.j2
     dest: /etc/logstash/conf.d/90-elasticsearch-output.conf.j2
-    owner: root
-    group: root
+    owner: logstash
+    group: logstash
     mode: 0750
   notify: restart logstash
+
+- name: Configure Kibana
+  template:
+    src: kibana.yml.j2
+    dest: /etc/kibana/kibana.yml
+    owner: kibana
+    group: kibana
+    mode: 0750
+  notify: restart kibana

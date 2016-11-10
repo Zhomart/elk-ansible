@@ -16,3 +16,8 @@ elk_logstash_http_port:         '9600'
 elk_logstash_elasticsearch:
   - "localhost:9200"
 elk_logstash_local_syslog_input: false
+elk_logstash_beats_input:       true
+
+elk_kibana_server_port:         '5601'
+elk_kibana_server_host:         '0.0.0.0'
+elk_kibana_elasticsearch_url:   'http://localhost:9200'

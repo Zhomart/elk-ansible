@@ -56,3 +56,16 @@
 
 - name: Install Logstash.
   apt: pkg=logstash state=present
+
+# ======== Kibana ===========
+
+- name: Install Kibana.
+  apt: pkg=kibana state=present
+
+# ======== Firewall ===========
+
+- name: Debian | Firewall | Allow OpenSSH
+  ufw: rule=allow name=OpenSSH
+
+- name: Debian | Firewall | Enable
+  ufw: state=enabled

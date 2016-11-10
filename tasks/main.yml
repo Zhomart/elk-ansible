@@ -13,3 +13,6 @@
 
 - name: Start Logstash
   service: name=logstash state=started enabled=yes
+
+- name: Start Kibana
+  service: name=kibana state=started enabled=yes

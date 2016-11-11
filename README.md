@@ -1,6 +1,6 @@
 # Ansible Role: elk
 
-An Ansible Role that installs Elasticsearch on Debian/Ubuntu.
+An Ansible Role that installs Elasticsearch, Logstash and Kibana 5.0 on Debian/Ubuntu.
 
 **Tested on Ubuntu 16.04**
 
@@ -11,7 +11,7 @@ Make sure that python:2.7 is installed on the host.
 
 Look at `defaults/main.yml` for variables.
 
-This playbook expects you run it under user `root`.
+This playbook is expected to run under `root`.
 
 **Example of using in playbook**
 

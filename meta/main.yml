@@ -13,10 +13,10 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-        - '14.04'
+        - '16.04'
     - name: Debian
       versions:
-        - 7
+        - 8
   galaxy_tags:
     - monitoring
     - elastic

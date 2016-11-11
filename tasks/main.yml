@@ -3,7 +3,9 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- include: config.yml
+- include: elasticsearch.yml
+- include: logstash.yml
+- include: kibana.yml
 
 - name: Start Elasticsearch
   service: name=elasticsearch state=started enabled=yes

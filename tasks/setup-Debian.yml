@@ -69,3 +69,9 @@
 
 - name: Debian | Firewall | Enable
   ufw: state=enabled
+
+# ========= max_map_count ===========
+
+- name: Debian | setting vm.max_map_count
+  command: sysctl -w vm.max_map_count={{elk_vm_max_map_count}}
+  when: elk_vm_max_map_count is not none

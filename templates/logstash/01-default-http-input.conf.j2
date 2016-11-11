@@ -1,8 +1,13 @@
 input {
-  beats {
-    port => 5044
+  http {
+    port => 8080
+    add_field => {
+      input => "default-http"
+    }
   }
 }
+
+filter {}
 
 output {
   elasticsearch {

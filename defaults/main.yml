@@ -7,9 +7,12 @@ elk_java_repo_key:              'EEA14886'
 elk_java_oracle_installer_key:  'oracle-java8-installer'
 elk_java_oracle_license_key:    'accepted-oracle-license-v1-1'
 
+elk_vm_max_map_count:           ~
+
 elk_elasticsearch_cluster_name: 'elk'
 elk_elasticsearch_network_host: 'localhost'
 elk_elasticsearch_http_port:    '9200'
+elk_elasticsearch_xpack:        false
 
 elk_logstash_http_host:         'localhost'
 elk_logstash_http_port:         '9600'
@@ -21,3 +24,4 @@ elk_logstash_beats_input:       true
 elk_kibana_server_port:         '5601'
 elk_kibana_server_host:         '0.0.0.0'
 elk_kibana_elasticsearch_url:   'http://localhost:9200'
+elk_kibana_xpack:               false

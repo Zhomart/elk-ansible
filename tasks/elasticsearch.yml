@@ -1,0 +1,28 @@
+---
+
+- name: Configure Elasticsearch
+  template:
+    src: elasticsearch.yml.j2
+    dest: /etc/elasticsearch/elasticsearch.yml
+    owner: elasticsearch
+    group: elasticsearch
+    mode: 0750
+  notify: restart elasticsearch
+
+- name: Configure Elasticsearch defaults
+  when: false
+  template:
+    src: etc_default/elasticsearch.j2
+    dest: /etc/default/elasticsearch
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart elasticsearch
+
+- name: Installing X-Pack to Elasticsearch
+  shell: yes | ./bin/elasticsearch-plugin install x-pack
+  args:
+    chdir: /usr/share/elasticsearch
+    creates: /usr/share/elasticsearch/plugins/x-pack/plugin-descriptor.properties
+  notify: restart elasticsearch
+  when: {{ elk_elasticsearch_xpack }}

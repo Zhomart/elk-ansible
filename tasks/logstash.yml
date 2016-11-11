@@ -1,14 +1,5 @@
 ---
 
-- name: Configure Elasticsearch
-  template:
-    src: elasticsearch.yml.j2
-    dest: /etc/elasticsearch/elasticsearch.yml
-    owner: elasticsearch
-    group: elasticsearch
-    mode: 0750
-  notify: restart elasticsearch
-
 - name: Configure Logstash
   template:
     src: logstash.yml.j2
@@ -46,12 +37,3 @@
     group: logstash
     mode: 0750
   notify: restart logstash
-
-- name: Configure Kibana
-  template:
-    src: kibana.yml.j2
-    dest: /etc/kibana/kibana.yml
-    owner: kibana
-    group: kibana
-    mode: 0750
-  notify: restart kibana

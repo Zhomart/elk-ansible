@@ -17,4 +17,4 @@ Look at `defaults/main.yml` and `vars/main.yml` for variables.
 - [x] Elasticsearch 5.0
 - [x] Logstash 5.0
 - [x] Kibana 5.0
-- [ ] Authentication if possible
+- [x] X-Pack

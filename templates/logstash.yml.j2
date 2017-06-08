@@ -19,7 +19,7 @@
 #
 # Use a descriptive name for the node:
 
-node.name: "{{ ansible_hostname }}"
+node.name: "{{ elk_logstash_node_name }}"
 
 # If omitted the node name will default to the machine's host name
 #
@@ -28,7 +28,7 @@ node.name: "{{ ansible_hostname }}"
 # Which directory should be used by logstash and its plugins
 # for any persistent needs. Defaults to LOGSTASH_HOME/data
 
-path.data: /var/lib/logstash
+path.data: "{{ elk_logstash_path_data }}"
 
 # ------------ Pipeline Settings --------------
 #
@@ -109,8 +109,8 @@ http.port: {{ elk_logstash_http_port }}
 #   * debug
 #   * trace
 #
-# log.level: info
-path.logs: /var/log/logstash
+log.level: {{ elk_logstash_log_level }}
+path.logs: {{ elk_logstash_path_logs }}
 
 # ------------ Other Settings --------------
 #

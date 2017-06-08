@@ -58,6 +58,18 @@ root@host # ufw allow 5601
 ```
 
 
+## Logstash
+
+https://discuss.elastic.co/t/running-multiple-independent-logstash-config-files-with-input-filter-and-output/29757
+
+Logstash currently has a single event pipeline. All configuration files are just concatenated (in order) as if you had written a single flat file. If you don't want all filters to apply to all events you need to have conditionals to select which filters (and outputs) to apply where. For example, you'd typically assign different types to different kinds of messages so you'd wrap your filters like this:
+
+```
+if [type] == "sometype" {
+  ...
+}
+```
+
 ## TODO
 
 - [x] Elasticsearch 5.0

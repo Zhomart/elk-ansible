@@ -67,6 +67,12 @@
 - name: Debian | Firewall | Allow OpenSSH
   ufw: rule=allow name=OpenSSH
 
+- name: Debian | Firewall | Allow http
+  ufw: rule=allow name=http
+
+- name: Debian | Firewall | Allow https
+  ufw: rule=allow name=https
+
 - name: Debian | Firewall | Enable
   ufw: state=enabled
 

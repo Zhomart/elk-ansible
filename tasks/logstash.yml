@@ -27,7 +27,7 @@
     group: logstash
     mode: 0750
   notify: restart logstash
-  when: elk_logstash_beats_input
+  when: elk_logstash_input_beats
 
 - name: Configure Logstash | elasticsearch-output
   template:

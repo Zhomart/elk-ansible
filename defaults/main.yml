@@ -14,12 +14,22 @@ elk_elasticsearch_network_host: 'localhost'
 elk_elasticsearch_http_port:    '9200'
 elk_elasticsearch_xpack:        false
 
+elk_logstash_node_name:         {{ ansible_hostname }}
 elk_logstash_http_host:         'localhost'
 elk_logstash_http_port:         '9600'
-elk_logstash_elasticsearch:
+elk_logstash_inputs:
+  - type: http
+    port: 8080
+    add_field: { "input": "default-http" }
+elk_logstash_output_elasticsearch: true
+elk_logstash_output_elasticsearch_hosts:
   - "localhost:9200"
 elk_logstash_local_syslog_input: false
-elk_logstash_beats_input:       true
+elk_logstash_input_beats:       true
+elk_logstash_input_beats_port:  5044
+elk_logstash_path_data:         "/var/lib/logstash"
+elk_logstash_path_logs:         "/var/log/logstash"
+elk_logstash_log_level:         "info"
 
 elk_kibana_server_port:         '5601'
 elk_kibana_server_host:         '0.0.0.0'

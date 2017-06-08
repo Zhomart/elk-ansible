@@ -1,13 +1,5 @@
 input {
   beats {
-    port => 5044
-  }
-}
-
-output {
-  elasticsearch {
-    hosts => [ "{{ elk_logstash_elasticsearch | join('", "') }}" ]
-    index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
-    document_type => "%{[@metadata][type]}"
+    port => {{ elk_logstash_input_beats_port }}
   }
 }

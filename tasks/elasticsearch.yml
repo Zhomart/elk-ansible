@@ -25,4 +25,4 @@
     chdir: /usr/share/elasticsearch
     creates: /usr/share/elasticsearch/plugins/x-pack/plugin-descriptor.properties
   notify: restart elasticsearch
-  when: {{ elk_elasticsearch_xpack }}
+  when: "{{ elk_elasticsearch_xpack }}"
